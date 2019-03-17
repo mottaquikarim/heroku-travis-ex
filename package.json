@@ -1,0 +1,50 @@
+{
+  "name": "heroku-travis-ex",
+  "version": "1.0.0",
+  "description": "This repo contains a tutorial for getting set up with NodeJS project that runs on Heroku, is deployable via Travis, and is validated with unit tests with Jest.",
+  "main": "index.js",
+  "scripts": {
+    "test": "$(npm bin)/jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "seed": "cat seed.sql | psql",
+    "write-coveralls": "rm -rf .coveralls.yml && echo \"repo_token:$COVERAGE_TOKEN\" >> .coveralls.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mottaquikarim/heroku-travis-ex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mottaquikarim/heroku-travis-ex/issues"
+  },
+  "homepage": "https://github.com/mottaquikarim/heroku-travis-ex#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg-promise": "^8.6.4"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "jest": "^24.5.0",
+    "supertest": "^4.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/__fixtures__/**",
+      "!**/coverage/**",
+      "!index.js"
+    ]
+  }
+}
