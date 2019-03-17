@@ -1,5 +1,7 @@
-DROP TABLE IF EXISTS pets;
-DROP TABLE IF EXISTS users;
+DROP DATABASE IF EXISTS petpedia;
+CREATE DATABASE petpedia;
+
+\c petpedia;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
