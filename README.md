@@ -27,3 +27,10 @@ $ heroku login
 
 This should open up your browser and prompt your to login to the heroku account created.
 
+### Create app
+
+**ENSURE** that you are in the root directory of this repo on your local environment.
+
+```
+$ heroku create
+```
